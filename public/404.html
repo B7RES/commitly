@@ -1,0 +1,41 @@
+
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Reindirizzamento...</title>
+  <script>
+    (function () {
+      var BASE_PATH = "/commitly/";
+      var STORAGE_KEY = "commitly:spa:redirect";
+      var path = window.location.pathname || "/";
+
+      if (!path.startsWith(BASE_PATH)) return;
+
+      var rawRelative = path.slice(BASE_PATH.length);
+      var normalizedRelative = rawRelative
+        ? "/" + rawRelative.replace(/^\/+/, "")
+        : "/";
+
+      var payload = {
+        pathname: normalizedRelative,
+        search: window.location.search || "",
+        hash: window.location.hash || ""
+      };
+
+      try {
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      } catch (error) {
+        // Ignora eventuali errori di storage.
+      }
+
+      window.location.replace(BASE_PATH);
+    })();
+  </script>
+</head>
+<body>
+  <p>Reindirizzamento in corso...</p>
+</body>
+</html>
