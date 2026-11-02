@@ -1,41 +1,71 @@
 # Payments — Personal Tracker
 
-App personale local-first per tenere sotto controllo abbonamenti, pagamenti ricorrenti e finanziamenti. I dati sono salvati nel browser tramite IndexedDB (Dexie); non è previsto un backend applicativo.
+Applicazione personale per gestire e monitorare abbonamenti, utenze, finanziamenti, assicurazioni e altri impegni economici ricorrenti.
 
-## Stack
+L'obiettivo è avere una panoramica chiara delle proprie scadenze, dei pagamenti effettuati e degli importi previsti, attraverso un'interfaccia minimale e intuitiva.
 
-- React + TypeScript + Vite
-- Dexie + IndexedDB per i dati locali
-- PWA installabile
-- UI minimale bianco/nero, ispirata alle convenzioni shadcn/ui
+## Stack tecnologico
 
-## Struttura
-
-```text
-src/
-  components/       # componenti UI riutilizzabili
-  pages/            # schermate dell'app (calendario, future pagine)
-  services/         # accesso al database locale
-  lib/              # funzioni pure e utility
-  types/            # modelli e tipi condivisi
-  App.tsx           # shell, navigazione e coordinamento delle schermate
-  main.tsx          # bootstrap React
-  style.css         # design system e responsive styles
-```
+- **React** + TypeScript
+- **Vite** per sviluppo e build
+- **Dexie.js** + IndexedDB per la persistenza locale
+- **React Router** per la navigazione
+- **SCSS** per il sistema di stili e il design responsive
+- **PWA** per installazione e funzionamento offline
 
 ## Funzionalità
 
-- Dashboard con riepilogo mensile e annuale
-- Gestione abbonamenti, utenze e finanziamenti
-- Registrazione pagamenti e cronologia
-- Calendario mensile con scadenze ricorrenti, selezione del giorno e totale giornaliero/mensile
-- Backup e ripristino JSON
-- Installazione PWA e funzionamento offline dopo il primo caricamento
+- **Dashboard** — riepilogo degli impegni economici e delle prossime scadenze.
+- **Impegni** — gestione di abbonamenti, utenze, finanziamenti, assicurazioni e pagamenti ricorrenti.
+- **Dettaglio impegno** — consultazione delle informazioni, delle condizioni economiche e dello storico.
+- **Calendario** — visualizzazione delle scadenze su base mensile.
+- **Cronologia** — consultazione dei pagamenti registrati, con ricerca e filtri.
+- **Registrazione pagamenti** — possibilità di registrare le occorrenze pagate o saltate.
+- **Backup e ripristino** — esportazione e importazione dei dati tramite file JSON, con validazione e conferma prima del ripristino.
+- **Impostazioni** — gestione dei dati e delle operazioni di backup.
+
+## Architettura e dati
+
+L'applicazione utilizza un'architettura local-first: i dati vengono salvati nel database IndexedDB del browser attraverso Dexie.js.
+
+Il modello dati si basa su tre entità principali:
+
+- `Commitment` — informazioni principali di ogni impegno economico.
+- `CommitmentTerm` — condizioni economiche e periodi di validità.
+- `PaymentHistory` — storico delle occorrenze e dei pagamenti.
+
+Gli importi monetari vengono gestiti in centesimi interi per evitare imprecisioni nei calcoli.
+
+Non è previsto un backend applicativo: i dati rimangono sul dispositivo e nel browser utilizzato.
+
+## Struttura del progetto
+
+```text
+src/
+├── components/       # Componenti UI riutilizzabili
+├── pages/            # Pagine dell'applicazione
+├── services/         # Servizi e logica di dominio
+├── hooks/            # Custom React hooks
+├── lib/              # Utility e funzioni condivise
+├── types/            # Modelli e tipi TypeScript
+├── styles/           # Architettura SCSS
+├── App.tsx           # Configurazione principale dell'app
+└── main.tsx          # Bootstrap React
+```
 
 ## Sviluppo
 
+Requisiti: Node.js e npm.
+
+Installazione delle dipendenze:
+
 ```bash
 npm install
+```
+
+Avvio in modalità sviluppo:
+
+```bash
 npm run dev
 ```
 
@@ -45,6 +75,16 @@ Build di produzione:
 npm run build
 ```
 
+Anteprima della build:
+
+```bash
+npm run preview
+```
+
 ## Privacy e backup
 
-I dati finanziari restano nel database IndexedDB del browser e non vengono inviati a un server da questa app. IndexedDB non è cifrato automaticamente: proteggi il dispositivo e conserva backup JSON in un luogo sicuro. Ogni browser/dispositivo ha il proprio database; per trasferire i dati tra dispositivi usa esportazione e importazione del backup.
+I dati vengono conservati localmente nel browser tramite IndexedDB. L'applicazione non richiede account né un server applicativo.
+
+IndexedDB non offre cifratura automatica: è quindi importante proteggere il dispositivo e conservare i backup JSON in un luogo sicuro.
+
+Ogni browser e dispositivo mantiene il proprio database. Per trasferire i dati è possibile utilizzare le funzionalità di esportazione e ripristino.
