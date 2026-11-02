@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { App } from './App'
+import './styles/main.scss'
 
 const STORAGE_KEY = 'commitly:spa:redirect'
 const BASE_PATH = '/commitly/'
