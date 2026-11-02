@@ -1,0 +1,77 @@
+@use "../abstracts/tokens" as t;
+@use "../abstracts/mixins" as m;
+
+body {
+    min-width: 320px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: t.$font-sans;
+    line-height: 1.4;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+input,
+select,
+textarea {
+    @include m.control;
+    width: 100%;
+}
+
+input,
+textarea,
+select {
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible,
+a:focus-visible {
+    @include m.focus-ring;
+}
+
+select,
+input[type="date"] {
+    color-scheme: dark;
+}
+
+select option {
+    background: var(--surface-elevated);
+    color: var(--text);
+}
+
+textarea {
+    min-height: 92px;
+    resize: vertical;
+    padding: 10px 11px;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

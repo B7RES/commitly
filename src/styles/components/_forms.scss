@@ -1,0 +1,124 @@
+@use "../abstracts/tokens" as t;
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.search-box,
+.filter-box {
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: t.$radius-sm;
+    background: var(--surface);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 10px;
+    color: var(--muted);
+}
+
+.search-box {
+    min-width: min(360px, 100%);
+    flex: 1;
+}
+
+.search-box input,
+.filter-box input,
+.filter-box select {
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    height: auto;
+    padding: 0;
+}
+
+.search-box input::placeholder {
+    color: var(--muted);
+}
+
+.filter-box select {
+    min-width: 120px;
+}
+
+.date-filter span {
+    font-size: 11px;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+}
+
+.field>span {
+    color: var(--muted-strong);
+    font-size: 12px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field-error {
+    color: #fca5a5;
+    font-size: 11px;
+}
+
+.commitment-form {
+    padding: 14px;
+    display: grid;
+    gap: 14px;
+}
+
+.commitment-form-section {
+    display: grid;
+    gap: 10px;
+}
+
+.commitment-form-section h2 {
+    font-size: 14px;
+}
+
+.commitment-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.commitment-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.commitment-form-alert {
+    color: #fca5a5;
+    border: 1px solid var(--danger-border);
+    border-radius: t.$radius-sm;
+    background: #2f1414;
+    padding: 9px 10px;
+    font-size: 12px;
+}
+
+@media (max-width: t.$bp-sm) {
+    .search-box {
+        min-width: 0;
+    }
+
+    .filter-box {
+        flex: 1;
+    }
+
+    .commitment-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .commitment-form-actions {
+        justify-content: stretch;
+    }
+
+    .commitment-form-actions button {
+        flex: 1;
+    }
+}

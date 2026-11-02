@@ -1,0 +1,94 @@
+@use "../abstracts/tokens" as t;
+
+.primary-btn,
+.secondary-btn,
+.danger-btn,
+.icon-btn,
+.text-btn,
+.paid-btn {
+    border-radius: t.$radius-sm;
+    border: 1px solid var(--border);
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+}
+
+.primary-btn {
+    border-color: #d4d4d8;
+    background: #f4f4f5;
+    color: #0f0f12;
+}
+
+.primary-btn:hover {
+    background: #e4e4e7;
+}
+
+.primary-btn.small {
+    height: 34px;
+}
+
+.secondary-btn,
+.icon-btn,
+.paid-btn {
+    background: var(--surface-elevated);
+    color: var(--text);
+}
+
+.secondary-btn:hover,
+.icon-btn:hover,
+.paid-btn:hover,
+.text-btn:hover {
+    background: var(--surface-hover);
+}
+
+.secondary-btn.compact,
+.icon-btn.compact {
+    height: 30px;
+    padding: 0 9px;
+    font-size: 11px;
+}
+
+.icon-btn {
+    width: 36px;
+    padding: 0;
+}
+
+.text-btn {
+    background: transparent;
+    border-color: transparent;
+    color: var(--muted-strong);
+    padding: 0;
+    height: auto;
+}
+
+.text-btn svg {
+    margin-top: 1px;
+}
+
+.danger-btn,
+.delete-icon {
+    background: var(--danger-bg);
+    border-color: var(--danger-border);
+    color: var(--danger-text);
+}
+
+@media (max-width: t.$bp-sm) {
+
+    .primary-btn,
+    .secondary-btn,
+    .danger-btn {
+        height: 34px;
+    }
+
+    .topbar .primary-btn.small {
+        height: 34px;
+        padding: 0 9px;
+        font-size: 11px;
+    }
+}

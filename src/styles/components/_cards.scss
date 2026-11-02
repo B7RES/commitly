@@ -1,0 +1,155 @@
+@use "../abstracts/tokens" as t;
+@use "../abstracts/mixins" as m;
+
+.panel,
+.stat-card,
+.commitment-card,
+.setting-panel,
+.history-row,
+.calendar-day,
+.calendar-event,
+.calendar-panel,
+.calendar-detail,
+.notfound-panel,
+.detail-register-panel,
+.financing-grid div {
+    @include m.panel;
+}
+
+.panel {
+    padding: 14px;
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.panel-heading h2 {
+    font-size: 15px;
+    letter-spacing: -0.01em;
+}
+
+.panel-heading p {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.panel-icon,
+.setting-icon,
+.stat-icon,
+.payment-icon,
+.history-check {
+    width: 34px;
+    height: 34px;
+    border-radius: t.$radius-sm;
+    border: 1px solid var(--border);
+    background: var(--surface-elevated);
+    display: grid;
+    place-items: center;
+}
+
+.panel-icon,
+.setting-icon {
+    color: var(--muted-strong);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.stat-card {
+    padding: 13px;
+    display: grid;
+    gap: 7px;
+}
+
+.stat-label {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.stat-value {
+    font-size: 22px;
+    letter-spacing: -0.02em;
+}
+
+.stat-hint {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.payment-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.payment-icon.subscription {
+    color: #d4d4d8;
+}
+
+.payment-icon.financing {
+    color: #f5f5f5;
+}
+
+.payment-icon.bill {
+    color: #b4b4bc;
+}
+
+.payment-icon.other {
+    color: #9f9fa8;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status.active {
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.status.paused {
+    background: var(--warning-bg);
+    color: var(--warning-text);
+}
+
+.status.completed,
+.status.archived {
+    background: #27272d;
+    color: #bcbcc5;
+}
+
+@media (max-width: t.$bp-lg) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: t.$bp-sm) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .panel {
+        padding: 12px;
+    }
+}

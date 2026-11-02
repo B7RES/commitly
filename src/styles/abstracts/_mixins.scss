@@ -1,0 +1,22 @@
+@use "./tokens" as t;
+
+@mixin panel {
+    border: 1px solid var(--border);
+    border-radius: t.$radius-md;
+    background: var(--surface);
+}
+
+@mixin control {
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: t.$radius-sm;
+    background: var(--surface-elevated);
+    color: var(--text);
+    padding: 0 11px;
+}
+
+@mixin focus-ring {
+    outline: none;
+    box-shadow: t.$shadow-focus;
+    border-color: var(--muted-strong);
+}

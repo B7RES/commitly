@@ -1,0 +1,29 @@
+$font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$radius-xs: 6px;
+$radius-sm: 8px;
+$radius-md: 10px;
+$radius-lg: 12px;
+$shadow-focus: 0 0 0 2px rgba(161, 161, 170, 0.32);
+
+$bp-lg: 1050px;
+$bp-sm: 700px;
+
+:root {
+    color-scheme: dark;
+    --bg: #09090b;
+    --surface: #111113;
+    --surface-elevated: #18181b;
+    --surface-hover: #1f1f23;
+    --border: #2a2a2f;
+    --text: #f5f5f5;
+    --muted: #a1a1aa;
+    --muted-strong: #c7c7ce;
+    --success-bg: #1a2e22;
+    --success-text: #b2f5cf;
+    --warning-bg: #3a2b17;
+    --warning-text: #f8d5a4;
+    --danger-bg: #3c1212;
+    --danger-text: #fecaca;
+    --danger-border: #7f1d1d;
+    --accent: #fafafa;
+}

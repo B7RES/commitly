@@ -1,0 +1,83 @@
+@use "../abstracts/tokens" as t;
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 12px;
+}
+
+.today-chip {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted-strong);
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 10px;
+}
+
+.upcoming-list,
+.breakdown-list {
+    display: grid;
+}
+
+.upcoming-row,
+.breakdown-item,
+.breakdown-total {
+    border-top: 1px solid var(--border);
+    padding: 10px 0;
+}
+
+.upcoming-row:first-child,
+.breakdown-item:first-child {
+    border-top: 0;
+}
+
+.upcoming-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.upcoming-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.upcoming-info b {
+    display: block;
+    font-size: 13px;
+}
+
+.upcoming-info span,
+.upcoming-amount small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.upcoming-amount {
+    display: grid;
+    justify-items: end;
+    font-size: 13px;
+}
+
+.bar-track {
+    margin-top: 6px;
+    border-radius: 999px;
+    height: 6px;
+    background: #2f2f36;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: #8a8a96;
+}
+
+@media (max-width: t.$bp-lg) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
