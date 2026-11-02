@@ -106,14 +106,32 @@ export function AppLayout({ activePaymentsCount, onOpenNewPayment, children }: A
             </div>
         </aside>
         <main className="main-content">
-            <header className="topbar"><div className="topbar-left"><button
-                ref={mobileMenuButtonRef}
-                className="icon-btn mobile-menu-btn"
-                onClick={() => setMobileDrawerOpen(true)}
-                aria-label="Apri menu"
-                aria-expanded={mobileDrawerOpen}
-                aria-controls="mobile-navigation-drawer"
-            ><Menu size={18} /></button><div className="mobile-brand"><div className="brand-mark"><Wallet size={19} /></div><strong>payments</strong></div></div><div className="topbar-right"><button className="icon-btn mobile-settings" onClick={() => navigate('/settings')} aria-label="Impostazioni"><Settings size={18} /></button><button className="primary-btn small" onClick={onOpenNewPayment}><Plus size={17} /> Nuovo impegno</button></div></header>
+            <header className="topbar"><div className="topbar-left">
+                <button
+                    ref={mobileMenuButtonRef}
+                    className="icon-btn mobile-menu-btn"
+                    onClick={() => setMobileDrawerOpen(true)}
+                    aria-label="Apri menu"
+                    aria-expanded={mobileDrawerOpen}
+                    aria-controls="mobile-navigation-drawer"
+                >
+                    <Menu size={18} />
+                </button>
+                <div className="mobile-brand">
+                    <div className="brand-mark">
+                        <Wallet size={19} />
+                    </div>
+                    <strong>payments</strong>
+                </div>
+            </div>
+                <div className="topbar-right">
+                    <button className="icon-btn mobile-settings" onClick={() => navigate('/settings')} aria-label="Impostazioni">
+                        <Settings size={18} />
+                    </button>
+                    <button className="primary-btn small" onClick={onOpenNewPayment}>
+                        <Plus size={17} /> Nuovo impegno</button>
+                </div>
+            </header>
             {children}
             <footer className="footer"><span>payments</span></footer>
         </main>

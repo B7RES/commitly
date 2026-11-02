@@ -200,7 +200,7 @@ body.drawer-open {
     }
 
     .topbar-left {
-        display: flex;
+        display: flex !important;
         align-items: center;
         gap: 8px;
     }
@@ -212,7 +212,7 @@ body.drawer-open {
     }
 
     .mobile-brand {
-        display: flex;
+        display: flex !important;
         align-items: center;
         gap: 8px;
     }
@@ -234,7 +234,7 @@ body.drawer-open {
     }
 
     .mobile-drawer-overlay {
-        display: block;
+        display: block !important;
         position: fixed;
         inset: 0;
         z-index: 24;
@@ -250,7 +250,7 @@ body.drawer-open {
     }
 
     .mobile-drawer {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         width: min(84vw, 292px);
         position: fixed;
